@@ -31,6 +31,11 @@ Things you may want to cover:
 | email                                | string | null: false, unique: true |
 | encrypted_password                   | string | null: false               |
 | encrypted_password_confirmation      | string | null: false               |
+| last_name                            | string | null: false               |
+| first_name                           | string | null: false               |
+| last_name(kana)                      | string | null: false               |
+| first_name(kana)                     | string | null: false               |
+| birthday                             | string | null: false               |
 
 ### Association
 
@@ -39,18 +44,17 @@ Things you may want to cover:
 
 ## Itemsテーブル
 
-| Column        | Type        | Options                        |
-| ------------- | ----------- | ------------------------------ |
-| image         | string      | null: false                    |
-| item_name     | string      | null: false                    |
-| explanation   | text        | null: false                    |
-| category      | text        | null: false                    |
-| condition     | text        | null: false                    |
-| delivery_fee  | integer     | null: false                    |
-| shipping_area | text        | null: false                    |
-| shipping_day  | text        | null: false                    |
-| price         | integer     | null: false                    |
-| user          | references  | null: false, foreign_key: true |
+| Column           | Type        | Options                        |
+| ---------------- | ----------- | ------------------------------ |
+| item_name        | string      | null: false                    |
+| explanation      | text        | null: false                    |
+| category_id      | integer     | null: false                    |
+| condition_id     | integer     | null: false                    |
+| delivery_fee_id  | integer     | null: false                    |
+| shipping_area_id | integer     | null: false                    |
+| shipping_day_id  | integer     | null: false                    |
+| price            | integer     | null: false                    |
+| user_id          | references  | null: false, foreign_key: true |
 
 ### Association
 
@@ -61,11 +65,8 @@ Things you may want to cover:
 
 | Column       | Type       | Options                        |
 | ------------ | -----------| ------------------------------ |
-| item_name    | string     | null: false                    |
-| image        | string     | null: false                    |
-| price        | string     | null: false                    |
-| delivery_fee | string     | null: false                    |
-| user         | references | null: false, foreign_key: true |
+| item_id      | references | null: false, foreign_key: true |
+| user_id      | references | null: false, foreign_key: true |
 
 ### Association
 
@@ -74,15 +75,16 @@ Things you may want to cover:
 
 ### Deliveryテーブル
 
-| Column              | Type | Options     |
-| ------------------- | -----| ------------|
-| address             | text | null: false |
-| postal_code         | text | null: false |
-| prefectures         | text | null: false |
-| municipalities      | text | null: false |
-| house_number        | text | null: false |
-| building_name       | text |             |
-| telephone_number    | text | null: false |
+| Column              | Type       | Options                        |
+| ------------------- | ---------- | ------------------------------ |
+| address             | text       | null: false                    |
+| postal_code         | text       | null: false                    |
+| prefectures_id      | integer    | null: false                    |
+| municipalities      | text       | null: false                    |
+| house_number        | text       | null: false                    |
+| building_name       | text       |                                |
+| telephone_number    | text       | null: false                    |
+| buy_id              | references | null: false, foreign_key: true |
 
 ### Association
 
