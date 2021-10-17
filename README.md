@@ -70,7 +70,7 @@ Things you may want to cover:
 ### Association
 
 - belongs_to :user
-= has_one :item
+- belongs_to :item
 - has_one :delivery
 
 ### Deliveryテーブル
@@ -88,4 +88,4 @@ Things you may want to cover:
 
 ### Association
 
-- has_one :buy
+- belongs_to :buy
