@@ -54,10 +54,25 @@ RSpec.describe '商品購入', type: :model do
       @buy_delivery.valid?
       expect(@buy_delivery.errors.full_messages).to include "Telephone number is invalid"
     end
-    it "tokenが空では登録できないこと" do
+    it 'telephone_numberが指定された桁数以外では保存できないこと' do
+      @buy_delivery.telephone_number = '000000000000'
+      @buy_delivery.valid?
+      expect(@buy_delivery.errors.full_messages).to include "Telephone number is invalid"
+    end
+    it 'tokenが空では保存できないこと' do
       @buy_delivery.token = nil
       @buy_delivery.valid?
-      expect(@buy_delivery.errors.full_messages).to include("Token can't be blank")
+      expect(@buy_delivery.errors.full_messages).to include "Token can't be blank"
+    end
+    it 'user_idが空では保存できないこと' do
+      @buy_delivery.user_id = nil
+      @buy_delivery.valid?
+      expect(@buy_delivery.errors.full_messages).to include "User can't be blank"
+    end
+    it 'item_idが空では保存できないこと' do
+      @buy_delivery.item_id = nil
+      @buy_delivery.valid?
+      expect(@buy_delivery.errors.full_messages).to include "Item can't be blank"
     end
   end
 end
